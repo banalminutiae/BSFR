@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
+#include <Windows.h>
 
 typedef Uint32 u32;
 
@@ -8,6 +9,10 @@ static const int width = 640;
 static const int height = 480;
 // g++ -std=c++17 main.cpp -IC:\SDL\include -LC:\SDL\lib\x86 -Werror -Wall -lSDL2main -lSDL2 -o main
 int main(int argc, char* argv[]) {
+
+    HWND windowHandle = GetConsoleWindow();
+	ShowWindow(windowHandle,SW_HIDE);
+    
     bool quit = false;
     bool lmb_down = false;
     SDL_Event event;
@@ -16,7 +21,7 @@ int main(int argc, char* argv[]) {
         printf("Failed to initialise SDL\n");
         return 0;
     }
-    SDL_Window* window     = SDL_CreateWindow("Blank canvas", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, 0);
+    SDL_Window* window     = SDL_CreateWindow("paint clone", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, 0);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
     SDL_Texture* texture   = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, width, height); // pixles are 32 bit values, 8 bits for each channel
 
