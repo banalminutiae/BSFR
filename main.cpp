@@ -6,7 +6,7 @@ typedef Uint32 u32;
 
 static const int width = 640;
 static const int height = 480;
-
+// g++ -std=c++17 main.cpp -IC:\SDL\include -LC:\SDL\lib\x86 -Werror -Wall -lSDL2main -lSDL2 -o main
 int main(int argc, char* argv[]) {
     bool quit = false;
     bool lmb_down = false;
@@ -43,9 +43,8 @@ int main(int argc, char* argv[]) {
                 if (lmb_down) {
                     int mouse_x = event.motion.x;
                     int mouse_y = event.motion.y;
-                    pixels[mouse_y * height + mouse_x] = 0;
+                    pixels[mouse_y * width + mouse_x] = 0;
                 }
-                break; 
             }
         }
         SDL_RenderClear(renderer);
