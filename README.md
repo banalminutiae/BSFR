@@ -1,0 +1,2 @@
+# BSFR
+BSFR stands for Brian Sweeney Fitzgerald Renderer, a reference to the film Fitzcarraldo because at the beginning of this project, writing a 3D renderer seems as daunting as pushing a steamboat through the Amazon rainforest.
